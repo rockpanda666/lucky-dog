@@ -9,8 +9,8 @@ body,html {
 	background: linear-gradient(-45deg, #ee7752, #e73c7e, #a19524, #23d5ab);
 	background-size: 400% 400%;
     overflow: hidden;
-	animation: Gradient 30s ease infinite;
-    animation: colorGradient 20s ease infinite;
+	animation: Gradient 10s ease infinite;
+    animation: colorGradient 5s ease infinite;
 }
 
 @keyframes Gradient {
@@ -25,3 +25,6 @@ body,html {
 	}
 }
 
+.result_box{
+    color: #000;
+}
