@@ -57,12 +57,42 @@ fetch("https://sheets.googleapis.com/v4/spreadsheets/1dyVOP5Oi-hQyOUWysAA_aKIe_P
         })
     })
 
+fetch("https://sheets.googleapis.com/v4/spreadsheets/1dyVOP5Oi-hQyOUWysAA_aKIe_P2b7FZTZxVc_WVi1k8/values:batchGet?dateTimeRenderOption=FORMATTED_STRING&majorDimension=DIMENSION_UNSPECIFIED&ranges=project!A%3AJ&valueRenderOption=FORMATTED_VALUE&key=AIzaSyCkGVQfrH7sqzjaKOR6Z1inbBFQSPE0j-k", {
+    "headers": {
+        "accept": "*/*",
+        "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6,ja;q=0.5,zh-TW;q=0.4",
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "cross-site"
+    },
+    "method": "GET",
+}).then(
+    function (response) {
+        if (response.status !== 200) {
+            console.log("存在一个问题，状态码为：" + response.status);
+            return;
+        }
+        //检查响应文本
+        response.json().then(function (datas) {
+            var dataset = datas.valueRanges[0].values;
+            console.log(dataset);
+            for (var i = 2; i < dataset.length; i++) {
+                var project = dataset[i][0] + ", " + dataset[i][1];
+                var pjt = document.createElement("p");
+                pjt.innerText = project;
+                document.getElementById("project").appendChild(pjt)
+            }
+            document.querySelector("#pjt_h1").textContent = dataset[0]
+        })
+    })
+
 alldata = sessionStorage.lista;
 
-function setlista(){
+function setlista() {
     alldata = sessionStorage.lista
 }
-function setlistb(){
+
+function setlistb() {
     alldata = sessionStorage.listb
 }
 
@@ -82,6 +112,7 @@ function start() {
     timer = setInterval('change()', 46); //滚动速度
 }
 var count = 0;
+
 function ok() {
     clearInterval(timer);
     alldata = alldata.replace(document.getElementById("oknum").innerText, "").replace(",,", ",");
@@ -93,9 +124,9 @@ function ok() {
     }
     alldataarr = alldata.split(",");
     num = alldataarr.length - 1;
-    count+=1;
+    count += 1;
     var lucky_dog = document.createElement("p")
-    lucky_dog.innerText = count.toString()+". "+document.getElementById("oknum").innerText
+    lucky_dog.innerText = count.toString() + ". " + document.getElementById("oknum").innerText
     document.getElementById("result").appendChild(lucky_dog)
 }
 
