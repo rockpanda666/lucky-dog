@@ -11,15 +11,17 @@
 </head>
 
 <body>
-    <p>Hello World</p>
+    <h1 id = "pjt_h1"></h1>
+    <div id = "project"></div>
     <label for="lista" id="a"><input type="radio" name="list" id="lista" onchange="setlista()" checked="true"><span>List A</span></label>
     <label for="listb" id="b"><input type="radio" name="list" id="listb" onchange="setlistb()"><span>List B</span></label>
+    <a href="https://docs.google.com/spreadsheets/d/1dyVOP5Oi-hQyOUWysAA_aKIe_P2b7FZTZxVc_WVi1k8/edit#gid=0">Edit List</a>
     
     <div class="result_box"><span id="oknum" value="Who">Who is the lucky dog</span></div>
 
     <div class="button_box">
         <button class="btn" onclick="start()" accesskey="s">Start(<U>S</U>)</button>
-        <button class="btn" onclick="ok()" accesskey="g">Get!(<U>G</U>)</button>
+        <button class="btn" onclick="ok()" accesskey="g">Stop(<U>G</U>)</button>
     </div>
 <div id="result"></div>
 </body>
