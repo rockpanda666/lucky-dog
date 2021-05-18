@@ -4,10 +4,10 @@ body,html {
 	font-family: "Open Sans", sans-serif;
 	background: #282828;
 	color: white;
-	padding-top: 20px;
 	background: linear-gradient(-45deg, #ee7752, #e73c7e, #a19524, #23d5ab);
 	background-size: 400% 400%;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
 	animation: Gradient 10s ease infinite;
     animation: colorGradient 5s ease infinite;
 }
@@ -26,4 +26,10 @@ body,html {
 
 .result_box{
     color: #000;
+}
+
+label input:checked + span{
+    color: #240954;
+    font-weight: bolder;
+    
 }
