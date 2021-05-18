@@ -81,10 +81,10 @@ function start() {
     clearInterval(timer);
     timer = setInterval('change()', 46); //滚动速度
 }
-
+var count = 0;
 function ok() {
     clearInterval(timer);
-    alldata = alldata.replace(document.getElementById("oknum").value, "").replace(",,", ",");
+    alldata = alldata.replace(document.getElementById("oknum").innerText, "").replace(",,", ",");
     if (alldata.substr(0, 1) == ",") {
         alldata = alldata.substr(1, alldata.length);
     }
@@ -93,6 +93,10 @@ function ok() {
     }
     alldataarr = alldata.split(",");
     num = alldataarr.length - 1;
+    count+=1;
+    var lucky_dog = document.createElement("p")
+    lucky_dog.innerText = count.toString()+". "+document.getElementById("oknum").innerText
+    document.getElementById("result").appendChild(lucky_dog)
 }
 
 function GetRnd(min, max) {
