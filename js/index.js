@@ -87,6 +87,8 @@ fetch("https://sheets.googleapis.com/v4/spreadsheets/1dyVOP5Oi-hQyOUWysAA_aKIe_P
     })
 
 alldata = sessionStorage.lista;
+var notice = alldata?"Lottery Ready !":"Please refresh this page to load data";
+window.onload = function(){document.getElementById("oknum").innerText = notice};
 
 function setlista() {
     alldata = sessionStorage.lista
